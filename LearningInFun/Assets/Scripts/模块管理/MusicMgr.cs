@@ -28,6 +28,8 @@ public class MusicMgr : BaseManager<MusicMgr>
             }
         }
     }
+
+    #region 背景音乐模块
     /// <summary>
     /// 播放背景音乐
     /// </summary>
@@ -98,7 +100,9 @@ public class MusicMgr : BaseManager<MusicMgr>
             bkMusic.Stop();
         }
     }
+    #endregion
 
+    #region 音效模块
     /// <summary>
     /// 播放音效
     /// </summary>
@@ -151,6 +155,21 @@ public class MusicMgr : BaseManager<MusicMgr>
             source.volume = value;
         }
     }
+    #endregion
 
-    
+    #region 语音库模块
+
+    //播放语音
+    public void PlayVoice()
+    {
+
+    }
+
+    //暂停语音
+    public void StopVoice()
+    {
+
+    }
+    #endregion
+
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : Singleton<T>
+public class MonoBaseManager<T> : MonoBehaviour where T : MonoBaseManager<T>
 {
     public static T Instance { get; private set; }
 
