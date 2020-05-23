@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//使用方法：需要单例的直接继承即可
+//使用方法：需要单例的,非继承于MonoBehavior直接继承即可
 public class BaseManager<T> where T:new ()
 {
     private static T instance;
