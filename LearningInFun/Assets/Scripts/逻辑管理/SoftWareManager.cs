@@ -13,6 +13,7 @@ public enum SceneTypes
 public class SoftWareManager : MonoBehaviour
 {
     //软件逻辑方面
+    private SceneTypes curScene;
     private int sceneNumber;
 
     void Start()
