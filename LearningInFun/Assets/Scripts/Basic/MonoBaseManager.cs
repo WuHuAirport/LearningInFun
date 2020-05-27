@@ -11,7 +11,7 @@ public class MonoBaseManager<T> : MonoBehaviour where T : MonoBaseManager<T>
         if (Instance == null)
         {
             Instance = (T)this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
