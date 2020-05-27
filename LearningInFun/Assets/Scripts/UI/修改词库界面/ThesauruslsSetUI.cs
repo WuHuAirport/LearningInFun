@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ThesauruslsSetUI : MonoBehaviour
+public class ThesauruslsSetUI : SoftWareManager
 {
     public string chooingWord;//选中的单词
     public string inputWord;//输入框内容
@@ -16,7 +16,7 @@ public class ThesauruslsSetUI : MonoBehaviour
     private void Start()
     {
         thesaurusls = BaseManager<IOMgr>.GetInstance();
-        SVC = GetComponentInChildren<ScrollViewContral>();
+        SVC = GameObject.Find("Scroll View").GetComponentInChildren<ScrollViewContral>();
         LoadThesaurusls(inputWord);
 
         //监听输入框输入
@@ -85,9 +85,12 @@ public class ThesauruslsSetUI : MonoBehaviour
         needLoad = true;
     }
 
+    /// <summary>
+    /// 回到开始界面
+    /// </summary>
     public void BackHome()
     {
-        BackSence();
+        JumpToScene(SceneName.startScene);
     }
 
     /// <summary>

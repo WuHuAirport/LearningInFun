@@ -68,9 +68,9 @@
     <Compile Include="Assets\Scripts\Basic\MonoBaseManager.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoController.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoMgr.cs" />
-    <Compile Include="Assets\Scripts\UI\ButtonContral.cs" />
-    <Compile Include="Assets\Scripts\UI\ScrollViewContral.cs" />
-    <Compile Include="Assets\Scripts\UI\ThesauruslsSetUI.cs" />
+    <Compile Include="Assets\Scripts\UI\修改词库界面\ButtonContral.cs" />
+    <Compile Include="Assets\Scripts\UI\修改词库界面\ScrollViewContral.cs" />
+    <Compile Include="Assets\Scripts\UI\修改词库界面\ThesauruslsSetUI.cs" />
     <Compile Include="Assets\Scripts\模块管理\IOMgr.cs" />
     <Compile Include="Assets\Scripts\模块管理\MusicMgr.cs" />
     <Compile Include="Assets\Scripts\模块管理\ResMgr.cs" />

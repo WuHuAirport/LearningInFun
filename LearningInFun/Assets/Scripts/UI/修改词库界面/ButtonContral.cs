@@ -10,7 +10,7 @@ public class ButtonContral : MonoBehaviour
     Text tipText;//提示框上的文字
     private void Start()
     {
-        TSU = GameObject.Find("Scroll View").GetComponent<ThesauruslsSetUI>();
+        TSU = GameObject.Find("UIMgr").GetComponent<ThesauruslsSetUI>();
         tipText = GameObject.Find("TipsText").GetComponent<Text>();
         text = GetComponentInChildren<Text>();
     }

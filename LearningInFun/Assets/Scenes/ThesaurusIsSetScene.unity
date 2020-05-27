@@ -198,6 +198,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30934870}
   m_CullTransparentMesh: 0
+--- !u!1 &84641523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 84641525}
+  - component: {fileID: 84641524}
+  m_Layer: 0
+  m_Name: UIMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &84641524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84641523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081e40aab9977804d9a0917253410b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSettingPanel: {fileID: 0}
+  chooingWord: 
+  inputWord: 
+--- !u!4 &84641525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84641523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 232.93976, y: 100.893875, z: -1074.5951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &141200528
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +402,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 256761700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 84641524}
+        m_MethodName: BackHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &256761700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +610,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136215117}
+      - m_Target: {fileID: 84641524}
         m_MethodName: FinishWork
         m_Mode: 1
         m_Arguments:
@@ -732,7 +789,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136215117}
+      - m_Target: {fileID: 84641524}
         m_MethodName: DeleteWord
         m_Mode: 1
         m_Arguments:
@@ -968,7 +1025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136215117}
+      - m_Target: {fileID: 84641524}
         m_MethodName: AddWord
         m_Mode: 1
         m_Arguments:
@@ -1192,7 +1249,6 @@ GameObject:
   - component: {fileID: 1136215116}
   - component: {fileID: 1136215115}
   - component: {fileID: 1136215114}
-  - component: {fileID: 1136215117}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -1287,20 +1343,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136215112}
   m_CullTransparentMesh: 0
---- !u!114 &1136215117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136215112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081e40aab9977804d9a0917253410b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chooingWord: 
-  inputWord: 
 --- !u!1 &1187946227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,7 +1509,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1136215117}
+      - m_Target: {fileID: 0}
         m_MethodName: LoadThesaurusls
         m_Mode: 5
         m_Arguments:

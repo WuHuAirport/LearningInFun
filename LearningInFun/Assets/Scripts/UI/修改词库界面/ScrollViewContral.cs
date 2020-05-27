@@ -19,7 +19,6 @@ public class ScrollViewContral : MonoBehaviour
     private void Start()
     {
         originHeight = GetComponent<RectTransform>().rect.height;
-        
     }
 
     public void BuildWordButton(string word)

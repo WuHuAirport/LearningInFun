@@ -128,6 +128,11 @@ public class IOMgr :BaseManager<IOMgr>
         }
     }
 
+    /// <summary>
+    /// 保存允许序列化的对象到硬盘
+    /// </summary>
+    /// <param name="data">允许序列化的对象</param>
+    /// <param name="fileName">保存文件的名称</param>
     public void SaveData(Object data,string fileName)
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -136,6 +141,12 @@ public class IOMgr :BaseManager<IOMgr>
         file.Close();
     }
 
+    /// <summary>
+    /// 获取硬盘上保存的对象，没有则返回null
+    /// </summary>
+    /// <typeparam name="T">保存对象的类型</typeparam>
+    /// <param name="fileName">文件的名称</param>
+    /// <returns>保存的对象</returns>
     public T LoadThesaurus<T>(string fileName)
     {
         T data;
