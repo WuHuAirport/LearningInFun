@@ -68,7 +68,9 @@
     <Compile Include="Assets\Scripts\Basic\MonoBaseManager.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoController.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoMgr.cs" />
+    <Compile Include="Assets\Scripts\UI\ButtonContral.cs" />
     <Compile Include="Assets\Scripts\UI\ScrollViewContral.cs" />
+    <Compile Include="Assets\Scripts\UI\ThesauruslsSetUI.cs" />
     <Compile Include="Assets\Scripts\模块管理\IOMgr.cs" />
     <Compile Include="Assets\Scripts\模块管理\MusicMgr.cs" />
     <Compile Include="Assets\Scripts\模块管理\ResMgr.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Assets\Scripts\模块管理\UIMgr.cs" />
     <Compile Include="Assets\Scripts\逻辑管理\GameManager.cs" />
     <Compile Include="Assets\Scripts\逻辑管理\SoftWareManager.cs" />
+    <Compile Include="Assets\Scripts\逻辑管理\UIPoint.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/28287/Documents/GitHub/LearningInFun/LearningInFun/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -557,8 +557,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1142836785}
   - component: {fileID: 1142836786}
+  - component: {fileID: 1142836787}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,6 +589,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a5f5b37bed6d7d459fd31b17dc3b9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1142836787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142836784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1abcb9f7f8bb94a918d8a1ebfc37cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1570303163
@@ -828,6 +841,7 @@ GameObject:
   - component: {fileID: 1661224519}
   - component: {fileID: 1661224518}
   - component: {fileID: 1661224517}
+  - component: {fileID: 1661224520}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -898,8 +912,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1142836786}
-        m_MethodName: EnterWordUsedScene
+      - m_Target: {fileID: 1661224520}
+        m_MethodName: JumpToScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -945,6 +959,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661224515}
   m_CullTransparentMesh: 0
+--- !u!114 &1661224520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661224515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1f158dea7cd234fbcb29c3e738c67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSceneName: 2
 --- !u!1 &1976162439
 GameObject:
   m_ObjectHideFlags: 0
