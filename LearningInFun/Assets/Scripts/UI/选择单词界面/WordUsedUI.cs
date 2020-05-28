@@ -25,7 +25,6 @@ public class WordUsedUI : MonoBehaviour
         //监听输入框输入
         inputField = GameObject.Find("InputField").GetComponent<InputField>();
         inputField.GetComponent<InputField>().onEndEdit.AddListener(EndEdit);
-        jumpToSence.jumpSceneName = SceneName.GameChooseScene;
     }
 
     /// <summary>
@@ -97,8 +96,6 @@ public class WordUsedUI : MonoBehaviour
             jumpToSence.JumpToScene();
         }
     }
-
-
 
     /// <summary>
     /// 根据生成正则生成滚动条
