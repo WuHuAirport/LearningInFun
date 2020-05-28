@@ -72,6 +72,8 @@
     <Compile Include="Assets\Scripts\Basic\MonoController.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoMgr.cs" />
     <Compile Include="Assets\Scripts\RayCast.cs" />
+    <Compile Include="Assets\Scripts\Speak.cs" />
+    <Compile Include="Assets\Scripts\SpeechTest.cs" />
     <Compile Include="Assets\Scripts\UI\修改词库界面\ButtonContral.cs" />
     <Compile Include="Assets\Scripts\UI\修改词库界面\ScrollViewContral.cs" />
     <Compile Include="Assets\Scripts\UI\修改词库界面\ThesauruslsSetUI.cs" />
@@ -292,6 +294,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>G:/unity/2019.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SpeechLib">
+      <HintPath>G:/unity/LearningInFun/LearningInFun/Assets/Interop.SpeechLib.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>G:/unity/2019.3.2f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
