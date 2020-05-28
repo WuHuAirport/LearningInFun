@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIPoint : MonoBehaviour
 {
-    public SceneName jumpSceneName;
+    public SceneName jumpSceneName; //设置想跳转的场景
 
     void Start()
     {

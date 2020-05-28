@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClearing: 0
-  button: {fileID: 5697595762177740098, guid: b38092aa6e7e3e647a9b17fb7952467a, type: 3}
+  button: {fileID: 0}
 --- !u!1 &571972163
 GameObject:
   m_ObjectHideFlags: 0
