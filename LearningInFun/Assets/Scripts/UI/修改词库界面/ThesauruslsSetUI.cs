@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ThesauruslsSetUI : MonoBehaviour
@@ -16,7 +15,7 @@ public class ThesauruslsSetUI : MonoBehaviour
     private void Start()
     {
         thesaurusls = BaseManager<IOMgr>.GetInstance();
-        SVC = GetComponentInChildren<ScrollViewContral>();
+        SVC = GameObject.Find("Scroll View").GetComponentInChildren<ScrollViewContral>();
         LoadThesaurusls(inputWord);
 
         //监听输入框输入
@@ -52,15 +51,15 @@ public class ThesauruslsSetUI : MonoBehaviour
     /// </summary>
     public void AddWord()
     {
-        if(Regex.IsMatch(inputWord, "^[a-z]*"))
+        if (Regex.IsMatch(inputWord, "^[a-z]*"))
         {
             thesaurusls.StorageWord(inputWord);
             SVC.ClearWordButton();
             needLoad = true;
         }
-        
+
     }
-    
+
     /// <summary>
     /// 点击删除按钮时删除选择的单词
     /// </summary>
@@ -81,14 +80,11 @@ public class ThesauruslsSetUI : MonoBehaviour
     public void FinishWork()
     {
         thesaurusls.SaveThesaurus();
+        thesaurusls.SaveChooseWord();
         SVC.ClearWordButton();
         needLoad = true;
     }
 
-    public void BackHome()
-    {
-        BackSence();
-    }
 
     /// <summary>
     /// 根据生成正则生成滚动条
@@ -103,5 +99,4 @@ public class ThesauruslsSetUI : MonoBehaviour
             SVC.BuildWordButton(item);
         }
     }
-
 }

@@ -5,12 +5,16 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Text.RegularExpressions;
 
+
+
 public class IOMgr :BaseManager<IOMgr>
 {
 
-    const string thesaursFileName = "/thesaursSave.save";//词库存储文件名
+    const string thesaursFileName = "thesaursSave.save";//词库存储文件名
+    const string chooseWordFileName = "chooseWord.save";//选择的单词存储文件名
 
-    ThesaursSave thesaursSave;//存储结构
+    ThesaursSave thesaursSave;//词库
+    ChooseWordSave chooseWord;//选择的单词
 
     /// <summary>
     /// 构造函数，初始化词库和载入词库
@@ -18,8 +22,12 @@ public class IOMgr :BaseManager<IOMgr>
     public IOMgr()
     {
         thesaursSave = new ThesaursSave();
+        chooseWord = new ChooseWordSave();
         LoadThesaurus();
+        LoadChooseWord();
     }
+
+    #region 词库输入输出
 
     /// <summary>
     /// 添加单词到词库中
@@ -108,10 +116,18 @@ public class IOMgr :BaseManager<IOMgr>
     /// </summary>
     public void SaveThesaurus()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + thesaursFileName);
-        bf.Serialize(file, thesaursSave);
-        file.Close();
+        SaveData<ThesaursSave>(thesaursSave, thesaursFileName);
+        if (chooseWord.chooseWord.Count != 0)
+        {
+            foreach (string item in chooseWord.chooseWord)
+            {
+                if (!SearchWord(item))
+                {
+                    DeleteCWord(item);
+                }
+            }
+            SaveChooseWord();
+        }
     }
 
     /// <summary>
@@ -119,16 +135,12 @@ public class IOMgr :BaseManager<IOMgr>
     /// </summary>
     public void LoadThesaurus()
     {
-        if (File.Exists(Application.persistentDataPath + thesaursFileName))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + thesaursFileName, FileMode.Open);
-            thesaursSave = (ThesaursSave)bf.Deserialize(file);
-            file.Close();
-        }
+        thesaursSave = LoadData<ThesaursSave>(thesaursFileName);
     }
 
-    public void SaveData(Object data,string fileName)
+    #endregion
+
+    public void SaveData<T>(T data,string fileName)
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath +"/" +fileName);
@@ -136,9 +148,9 @@ public class IOMgr :BaseManager<IOMgr>
         file.Close();
     }
 
-    public T LoadThesaurus<T>(string fileName)
+    public T LoadData<T>(string fileName)where T:new()
     {
-        T data;
+        T data = new T();
         if (File.Exists(Application.persistentDataPath +"/" + fileName))
         {
             BinaryFormatter bf = new BinaryFormatter();
@@ -147,6 +159,83 @@ public class IOMgr :BaseManager<IOMgr>
             file.Close();
             return data;
         }
-        return default;
+        return data;
     }
+
+    #region 选择单词输入输出
+
+    public List<string> GetChooseWord()
+    {
+        return chooseWord.chooseWord;
+    }
+
+    public bool StorageCWord(string targetWord)
+    {
+        if (targetWord != null)
+            targetWord = targetWord.ToLower();
+        if (!SearchCWord(targetWord))
+        {
+            chooseWord.chooseWord.Add(targetWord);
+            chooseWord.chooseWord.Sort();
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// 删除词库中的一个单词
+    /// </summary>
+    /// <param name="targetWord">删除的单词</param>
+    /// <returns>是否执行了删除操作，若单词不存在则返回false</returns>
+    public bool DeleteCWord(string targetWord)
+    {
+        if (targetWord != null)
+            targetWord = targetWord.ToLower();
+        if (SearchCWord(targetWord))
+        {
+            chooseWord.chooseWord.Remove(targetWord);
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// 清空词库
+    /// </summary>
+    /// <returns>成功清空</returns>
+    public bool DeleteAllCWords()
+    {
+        if (chooseWord.chooseWord.Count != 0)
+        {
+            chooseWord.chooseWord.Clear();
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// 查找词库中的一个单词
+    /// </summary>
+    /// <param name="targetWord">目标单词</param>
+    /// <returns>是否存在该单词</returns>
+    public bool SearchCWord(string targetWord)
+    {
+        if (targetWord != null)
+            targetWord = targetWord.ToLower();
+        if (chooseWord.chooseWord.IndexOf(targetWord) < 0)
+            return false;
+        return true;
+    }
+
+    public void SaveChooseWord()
+    {
+        SaveData<ChooseWordSave>(chooseWord, chooseWordFileName);
+    }
+
+    public void LoadChooseWord()
+    {
+        chooseWord = LoadData<ChooseWordSave>(chooseWordFileName);
+    }
+
+    #endregion
 }
