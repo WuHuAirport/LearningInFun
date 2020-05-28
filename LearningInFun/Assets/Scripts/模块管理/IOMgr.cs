@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 public class IOMgr :BaseManager<IOMgr>
 {
 
-    const string fileName = "/thesaursSave.save";//存储文件名
+    const string thesaursFileName = "/thesaursSave.save";//词库存储文件名
 
     ThesaursSave thesaursSave;//存储结构
 
@@ -28,7 +28,8 @@ public class IOMgr :BaseManager<IOMgr>
     /// <returns>是否执行了添加操作，若单词存在则返回false</returns>
     public bool StorageWord(string targetWord)
     {
-        targetWord = targetWord.ToLower();
+        if (targetWord != null)
+            targetWord = targetWord.ToLower();
         if (!SearchWord(targetWord))
         {
             thesaursSave.thesaurus.Add(targetWord);
@@ -45,7 +46,8 @@ public class IOMgr :BaseManager<IOMgr>
     /// <returns>是否执行了删除操作，若单词不存在则返回false</returns>
     public bool DeleteWord(string targetWord)
     {
-        targetWord = targetWord.ToLower();
+        if (targetWord != null)
+            targetWord = targetWord.ToLower();
         if (SearchWord(targetWord))
         {
             thesaursSave.thesaurus.Remove(targetWord);
@@ -75,7 +77,8 @@ public class IOMgr :BaseManager<IOMgr>
     /// <returns>是否存在该单词</returns>
     public bool SearchWord(string targetWord)
     {
-        targetWord = targetWord.ToLower();
+        if (targetWord != null)
+            targetWord = targetWord.ToLower();
         if (thesaursSave.thesaurus.IndexOf(targetWord) < 0)
             return false;
         return true;
@@ -86,9 +89,10 @@ public class IOMgr :BaseManager<IOMgr>
     /// </summary>
     /// <param name="targetWord">目标模式</param>
     /// <returns>查找到的所有单词</returns>
-    public List<string> SearchWords(string targetWord)
+    public List<string> SearchWords(string targetWord=null)
     {
-        targetWord = targetWord.ToLower();
+        if(targetWord!=null)
+            targetWord = targetWord.ToLower();
         List<string> targetWords = new List<string>();
         string rx = "^" + targetWord + "[a-z]*";
         targetWords = thesaursSave.thesaurus.FindAll(
@@ -105,7 +109,7 @@ public class IOMgr :BaseManager<IOMgr>
     public void SaveThesaurus()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + fileName);
+        FileStream file = File.Create(Application.persistentDataPath + thesaursFileName);
         bf.Serialize(file, thesaursSave);
         file.Close();
     }
@@ -115,13 +119,34 @@ public class IOMgr :BaseManager<IOMgr>
     /// </summary>
     public void LoadThesaurus()
     {
-        if (File.Exists(Application.persistentDataPath + fileName))
+        if (File.Exists(Application.persistentDataPath + thesaursFileName))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + fileName, FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + thesaursFileName, FileMode.Open);
             thesaursSave = (ThesaursSave)bf.Deserialize(file);
             file.Close();
         }
     }
 
+    public void SaveData(Object data,string fileName)
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath +"/" +fileName);
+        bf.Serialize(file, data);
+        file.Close();
+    }
+
+    public T LoadThesaurus<T>(string fileName)
+    {
+        T data;
+        if (File.Exists(Application.persistentDataPath +"/" + fileName))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/" + fileName, FileMode.Open);
+            data = (T)bf.Deserialize(file);
+            file.Close();
+            return data;
+        }
+        return default;
+    }
 }
