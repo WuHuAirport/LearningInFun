@@ -34,18 +34,18 @@ public class SoftWareManager : MonoBaseManager<SoftWareManager>
         panelAnim = gameSettingPanel.GetComponent<Animator>();
     }
 
-    public void OpenGameSetting()
-    {
-        Time.timeScale = 0;
-        panelAnim.SetBool("isRise", false);
-        panelAnim.SetTrigger("Move");
-    }
+    //public void OpenGameSetting()
+    //{
+    //    Time.timeScale = 0;
+    //    panelAnim.SetBool("isRise", false);
+    //    panelAnim.SetTrigger("Move");
+    //}
 
-    public void CloseGameSetting()
-    {
-        Time.timeScale = 1f;
-        panelAnim.SetBool("isRise", true);
-    }
+    //public void CloseGameSetting()
+    //{
+    //    Time.timeScale = 1f;
+    //    panelAnim.SetBool("isRise", true);
+    //}
 
     public void OnRestart()//点击“重新开始”时执行此方法
     {

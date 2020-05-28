@@ -18,9 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ThesaurusIsSetScene.unity
     guid: 112cd4d52f5d87a43a67d95f2559c4fe
   - enabled: 1
-    path: Assets/Scenes/GameChooseScene.unity
+    path: Assets/Scenes/GameScenes/GameChooseScene.unity
     guid: ceb073be71b2b084aad14b783c06bc1c
   - enabled: 1
-    path: Assets/Scenes/BallonHitGame.unity
+    path: Assets/Scenes/GameScenes/BallonHitGame.unity
     guid: 08ceb2da770356242935fc0458c87ab2
   m_configObjects: {}
