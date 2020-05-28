@@ -14,24 +14,25 @@ public enum SceneName
 public class SoftWareManager : MonoBaseManager<SoftWareManager>
 {
     //软件逻辑方面
-    private SceneName curScene;
+    public SceneName curScene;
     private int sceneNumber;
 
     //游戏设置
-    [SerializeField]
-    private GameObject gameSettingPanel;
+    //[SerializeField]
+    //private GameObject gameSettingPanel;
     //[SerializeField]
     //private Slider BKMusicSlider;//Slider 对象
     //[SerializeField]
     //private Slider SoundMusicSlider;
-    private Animator panelAnim;
+    //private Animator panelAnim;
 
     void Start()
     {
-        gameSettingPanel = GameObject.Find("GameSettingPanel");
+        curScene = SceneName.startScene;
+        //gameSettingPanel = GameObject.Find("GameSettingPanel");
         //BKMusicSlider = GameObject.Find("BKMusicSlider").GetComponent<Slider>();
         //SoundMusicSlider = GameObject.Find("SoundMusicSlider").GetComponent<Slider>();
-        panelAnim = gameSettingPanel.GetComponent<Animator>();
+        //panelAnim = gameSettingPanel.GetComponent<Animator>();
     }
 
     //public void OpenGameSetting()
@@ -86,6 +87,7 @@ public class SoftWareManager : MonoBaseManager<SoftWareManager>
     {
         Debug.Log("Scenes/"+sceneName.ToString());
         SceneMgr.GetInstance().LoadScene("Scenes/" + sceneName.ToString());
+        curScene = sceneName;
 
     }
 

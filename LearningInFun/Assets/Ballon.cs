@@ -18,9 +18,10 @@ public class Ballon : MonoBehaviour
 
     private void Awake()
     {
-        curSprite=transform.GetComponentInChildren<SpriteRenderer>().sprite;//初始化随机颜色
+        //curSprite=transform.GetComponentInChildren<SpriteRenderer>().sprite;//初始化随机颜色
         int i = Random.Range(0, 2);
-        curSprite = ballonSprites[i];
+        //Debug.Log()
+        transform.GetComponentInChildren<SpriteRenderer>().sprite = ballonSprites[i];
     }
 
     void Start()

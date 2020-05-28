@@ -130,7 +130,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86819075}
-  - component: {fileID: 86819074}
   - component: {fileID: 86819076}
   m_Layer: 0
   m_Name: GameManager
@@ -139,21 +138,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &86819074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86819073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55b646f99cae1f4408f69ed62190f3a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curScene: 0
-  thief: {fileID: 0}
-  aside: {fileID: 0}
 --- !u!4 &86819075
 Transform:
   m_ObjectHideFlags: 0
@@ -177,12 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 86819073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db778a359f8c55b4084db297bea58405, type: 3}
+  m_Script: {fileID: 11500000, guid: da1abcb9f7f8bb94a918d8a1ebfc37cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSettingPanel: {fileID: 0}
-  BKMusicSlider: {fileID: 0}
-  SoundMusicSlider: {fileID: 0}
 --- !u!1 &462814318
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e36c2166c313f45aa4be7469c98b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LightList: []
 --- !u!1 &1423840935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1499,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 86819074}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def5763d33a810b4c8cd48581b18844c, type: 3}

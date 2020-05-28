@@ -35,6 +35,8 @@ public class GameManager : MonoBaseManager<GameManager>
     public GameObject gamePanel;
     public GameObject gameSetting;
     public GameObject gameOver;
+    private GameObject ChooseTrigger;
+
 
     //GameSetting
     private int wordsNumber=4; //每波单词数
@@ -83,22 +85,29 @@ public class GameManager : MonoBaseManager<GameManager>
         switch(curGame)
         {
             case GameType.BallonHit:
-                BallonHitGameUpdate();
+                if (SoftWareManager.Instance.curScene == SceneName.BallonHitGame)
+                {
+                    //Debug.Log("hit game");
+                    ChooseTrigger = GameObject.Find("ChooseTrigger");
+                    BallonHitGameUpdate();
+                }
+                    
                 break;
         }
     }
 
     public void BallonHitGameUpdate()
     {
-        if (curTimes >= times)
+        if (curTimes == times&& !canHit)
         {
-            GameEnd();
+            Invoke("GameEnd",5.0f);
         }
         else
         {
-            timer += Time.deltaTime;
+            //timer += Time.deltaTime;
             if (canRiseNewBallons)
             {
+                canRiseNewBallons = false;
                 Debug.Log("create ballon");
                 curTimes++;
                 timesText.text = ("Times:" + curTimes) as string;
@@ -111,6 +120,7 @@ public class GameManager : MonoBaseManager<GameManager>
 
                 //分配气球上的单词
                 rightBallonIndex = Random.Range(0, 3);
+                Debug.Log("right index:" + rightBallonIndex);
                 curWordString = tempWords[rightBallonIndex];
                 Debug.Log("curWord:"+curWordString);
                 ballonsList[rightBallonIndex].GetComponent<Ballon>().wordString = curWordString;
@@ -118,12 +128,11 @@ public class GameManager : MonoBaseManager<GameManager>
                 {
                     if(i!=rightBallonIndex)
                     {
-                        Debug.Log(i+"Word:" + tempWords[i]);
+                        //Debug.Log(i+"Word:" + tempWords[i]);
                         ballonsList[i].GetComponent<Ballon>().wordString = tempWords[i];
                         //Debug.Log(i + "ballon:" + tempWords[i]);
                     }
                 }
-                canRiseNewBallons = false;
             }
                 
         }
@@ -131,8 +140,12 @@ public class GameManager : MonoBaseManager<GameManager>
     }
 
     //分数更新
-    public void AfterHitUpdate(bool isRright,GameObject hittedBallon)
+    public void AfterHitUpdate(bool isRright,GameObject hittedBallon,bool hasHit=true)
     {
+        if(hasHit)
+        {
+            ChooseTrigger.GetComponent<ChooseTrigger>().ResetTimer();
+        }
         //如果正确，更新分数
         if(isRright)
         {
@@ -140,6 +153,12 @@ public class GameManager : MonoBaseManager<GameManager>
             curScore= curRightNum*5;
             scoreText.text = ("Score:" + curScore) as string;
         }
+        else
+        {
+            ballonsList[rightBallonIndex].GetComponentInChildren<SpriteRenderer>().color = Color.green;
+        }
+
+
         
         for (int i = 0; i < 4; i++)
         {

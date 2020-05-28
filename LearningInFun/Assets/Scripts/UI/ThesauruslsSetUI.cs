@@ -85,10 +85,10 @@ public class ThesauruslsSetUI : MonoBehaviour
         needLoad = true;
     }
 
-    public void BackHome()
-    {
-        BackSence();
-    }
+    //public void BackHome()
+    //{
+    //    BackSence();
+    //}
 
     /// <summary>
     /// 根据生成正则生成滚动条

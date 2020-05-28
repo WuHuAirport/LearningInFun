@@ -24,6 +24,7 @@ public class RayCast : MonoBehaviour
                     //HitObj是你需要检测的物体的标签
                     if (hit.collider.tag == "Ballon")
                     {
+                        Debug.Log("click make");
                         GameManager.Instance.canHit = false;
                         if(hit.transform.gameObject.GetComponent<Ballon>().wordString==
                             GameManager.Instance.curWordString)

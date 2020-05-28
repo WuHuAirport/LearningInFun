@@ -6,7 +6,7 @@ public class ChooseTrigger : MonoBehaviour
 {
     //[SerializeField]
     private float reactionSeconds;//反应秒数
-    //[SerializeField]
+    [SerializeField]
     private float timer;
     private bool startRecord;
 
@@ -19,13 +19,11 @@ public class ChooseTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(startRecord)
+        if(startRecord&&timer>=0)
         {
             timer -= Time.deltaTime;
-
-            JudgeTimerIsOver();
-
         }
+        JudgeTimerIsOver();
 
     }
 
@@ -45,10 +43,19 @@ public class ChooseTrigger : MonoBehaviour
     {
         if (timer < 0)
         {
-            GameManager.Instance.AfterHitUpdate(false, null);
             startRecord = false;
             timer = reactionSeconds;
+            GameManager.Instance.canHit = false;
+            GameManager.Instance.AfterHitUpdate(false, null,false);
+            Debug.Log("choose make");
+            
         }
+    }
+
+    public void ResetTimer()
+    {
+        startRecord = false;
+        timer = reactionSeconds;
     }
 
     //public void OnTriggerStay2D(Collider2D collision)

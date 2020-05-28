@@ -2516,7 +2516,7 @@ GameObject:
   - component: {fileID: 1341499584}
   - component: {fileID: 1341499583}
   m_Layer: 5
-  m_Name: RightNum
+  m_Name: RightHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2971,7 +2971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520324446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2991,8 +2991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.7999878, y: 2.600006}
+  m_SizeDelta: {x: 22.7, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1520324447
 MonoBehaviour:
@@ -3007,7 +3007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6715268, g: 0.85882354, b: 0.63529414, a: 0.9254902}
+  m_Color: {r: 0.6715268, g: 0.85882354, b: 0.63529414, a: 0.9529412}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3304,6 +3304,7 @@ GameObject:
   - component: {fileID: 1784759143}
   - component: {fileID: 1784759146}
   - component: {fileID: 1784759147}
+  - component: {fileID: 1784759148}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3407,12 +3408,12 @@ MonoBehaviour:
   lowBorder: -6.5
   scoreText: {fileID: 2144800663}
   timesText: {fileID: 1457808415}
-  endScoreText: {fileID: 0}
-  endRightHitText: {fileID: 0}
-  endTimesText: {fileID: 0}
-  gamePanel: {fileID: 0}
-  gameSetting: {fileID: 0}
-  gameOver: {fileID: 0}
+  endScoreText: {fileID: 1848555256}
+  endRightHitText: {fileID: 1341499583}
+  endTimesText: {fileID: 2027109287}
+  gamePanel: {fileID: 1520324445}
+  gameSetting: {fileID: 785600130}
+  gameOver: {fileID: 697666419}
   reactionSeconds: 5
   curTimes: 0
   canHit: 0
@@ -3426,6 +3427,19 @@ MonoBehaviour:
     type: 3}
   rightParticle: {fileID: 157776, guid: 82bf03917e16d3d4cad30518cca28308, type: 3}
   errorParticle: {fileID: 151244, guid: 8368975de5593844bbfaf74e342fb326, type: 3}
+--- !u!114 &1784759148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784759142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da1abcb9f7f8bb94a918d8a1ebfc37cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curScene: 4
 --- !u!1 &1848555254
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,6 +3665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6e1a0e0ff47e942b233ee01e4b6c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
 --- !u!50 &1978657279
 Rigidbody2D:
   serializedVersion: 4
@@ -3831,7 +3846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5251,7 +5266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1604243443216971054
 MonoBehaviour:
   m_ObjectHideFlags: 0
