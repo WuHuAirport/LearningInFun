@@ -16,7 +16,7 @@ public enum GameType
     BallonHit//打气球
 }
 
-public class GameManager : MonoBaseManager<GameManager>
+public class GameManager : MonoBehaviour
 {
     public GameType curGame;
 
@@ -59,8 +59,11 @@ public class GameManager : MonoBaseManager<GameManager>
 
     public string curWordString;            //当前语音读的单词
     private int rightBallonIndex;           //对的单词所放的气球序号
+    private string otherWordString;
 
-    private string[] tempWords = { "apple", "peach", "banana", "pear" };
+    [SerializeField]
+    private List<string> choseWordList = new List<string>();
+    private List<string> tempWords = new List<string> { "apple", "peach", "banana", "pear","orange", "grape" };
 
     //private float gameTime=60.0f;
 
@@ -68,9 +71,27 @@ public class GameManager : MonoBaseManager<GameManager>
     public GameObject ballonPrefab;
     public GameObject rightParticle;
     public GameObject errorParticle;
+
+    public static GameManager Instance { get; private set; }
+
+    protected void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = (GameManager)this;
+            //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
     void Start()
     {
-        
+        //choseWordList = IOMgr.GetInstance().GetChooseWord();
+        choseWordList = tempWords;
     }
 
     // Update is called once per frame
@@ -119,17 +140,26 @@ public class GameManager : MonoBaseManager<GameManager>
                 //ballonsList[0] = Instantiate(ballonPrefab, new Vector3(((rightBorder - leftBorder) / 4) * 1 + leftBorder, lowBorder, 0), Quaternion.identity);
 
                 //分配气球上的单词
+                curWordString = choseWordList[Random.Range(0, choseWordList.Count)];
+
                 rightBallonIndex = Random.Range(0, 3);
-                Debug.Log("right index:" + rightBallonIndex);
-                curWordString = tempWords[rightBallonIndex];
-                Debug.Log("curWord:"+curWordString);
+                //Debug.Log("right index:" + rightBallonIndex);
+                MusicMgr.GetInstance().SpeakVoice(curWordString);
+
+                //curWordString = tempWords[rightBallonIndex];
+                //Debug.Log("curWord:"+curWordString);
                 ballonsList[rightBallonIndex].GetComponent<Ballon>().wordString = curWordString;
                 for (int i=0;i<4;i++)
                 {
                     if(i!=rightBallonIndex)
                     {
+                        otherWordString = choseWordList[Random.Range(0, choseWordList.Count)];
+                        while (otherWordString== curWordString)
+                        {
+                            otherWordString = choseWordList[Random.Range(0, choseWordList.Count)];
+                        }
                         //Debug.Log(i+"Word:" + tempWords[i]);
-                        ballonsList[i].GetComponent<Ballon>().wordString = tempWords[i];
+                        ballonsList[i].GetComponent<Ballon>().wordString = otherWordString;
                         //Debug.Log(i + "ballon:" + tempWords[i]);
                     }
                 }

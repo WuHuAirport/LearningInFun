@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7710010735190506077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.5, y: -0.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.77343, y: 0.77343, z: 0.77343}
   m_Children:
   - {fileID: 7710010736927206041}
   m_Father: {fileID: 0}
@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7a6a076dfb3959f4f9453ec852e31f45, type: 3}
   wordString: 
   canRise: 1
+  riseSpeed: 2
   textPrefab: {fileID: 6501509063286070466, guid: 9934ed22eb4c53d4e8671f04624b62a9,
     type: 3}
   wordText: {fileID: 0}

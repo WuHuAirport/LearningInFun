@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using SpeechLib;
+using System.Threading;
 
 public class MusicMgr : BaseManager<MusicMgr>
 {
@@ -11,6 +13,10 @@ public class MusicMgr : BaseManager<MusicMgr>
     private AudioSource bkMusic;    //唯一背景音乐对象
     private GameObject soundObj = null; //音效存放对象
     private List<AudioSource> soundList = new List<AudioSource>();  //音效列表
+
+    Thread thread;
+    SpVoice spVoice;
+    string DefaultEnglishLangID = "804";//中文 409：英文
 
     public MusicMgr()
     {
@@ -158,6 +164,38 @@ public class MusicMgr : BaseManager<MusicMgr>
     #endregion
 
     #region 语音库模块
+    public void SpeakVoice(string content)
+    {
+        thread = null;
+
+        try
+        {
+            if (thread == null)
+            {
+                thread = new Thread(() =>
+                {
+                    string contentStr = "<voice required=\"Language=" + DefaultEnglishLangID + "\">" + content + "</voice>";
+
+                    if (spVoice == null)
+                    {
+                        spVoice = new SpVoice();
+                        //spVoice.Voice = spVoice.GetVoices(string.Empty, string.Empty).Item(0);
+                        spVoice.Speak(contentStr, SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak | SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    }
+                    else
+                    {
+                        spVoice.Speak(contentStr, SpeechVoiceSpeakFlags.SVSFPurgeBeforeSpeak | SpeechVoiceSpeakFlags.SVSFlagsAsync);
+                    }
+                });
+            }
+            thread.Start();
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+
 
     //播放语音
     public void PlayVoice()
@@ -170,6 +208,8 @@ public class MusicMgr : BaseManager<MusicMgr>
     {
 
     }
+
+
     #endregion
 
 }
