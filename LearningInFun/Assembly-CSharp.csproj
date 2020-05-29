@@ -63,17 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Ballon.cs" />
-    <Compile Include="Assets\ChooseTrigger.cs" />
-    <Compile Include="Assets\CloseTrigger.cs" />
+    <Compile Include="Assets\GameOver.cs" />
     <Compile Include="Assets\Scripts\Basic\BaseManager.cs" />
     <Compile Include="Assets\Scripts\Basic\EventCenter.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoBaseManager.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoController.cs" />
     <Compile Include="Assets\Scripts\Basic\MonoMgr.cs" />
-    <Compile Include="Assets\Scripts\RayCast.cs" />
-    <Compile Include="Assets\Scripts\Speak.cs" />
-    <Compile Include="Assets\Scripts\SpeechTest.cs" />
+    <Compile Include="Assets\Scripts\Other\Ballon.cs" />
+    <Compile Include="Assets\Scripts\Other\ChooseTrigger.cs" />
+    <Compile Include="Assets\Scripts\Other\CloseTrigger.cs" />
+    <Compile Include="Assets\Scripts\Other\RayCast.cs" />
+    <Compile Include="Assets\Scripts\Other\Speak.cs" />
+    <Compile Include="Assets\Scripts\Other\SpeechTest.cs" />
     <Compile Include="Assets\Scripts\UI\修改词库界面\ButtonContral.cs" />
     <Compile Include="Assets\Scripts\UI\修改词库界面\ScrollViewContral.cs" />
     <Compile Include="Assets\Scripts\UI\修改词库界面\ThesauruslsSetUI.cs" />

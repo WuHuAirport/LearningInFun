@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 86819075}
   - component: {fileID: 86819076}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: SoftManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -419,7 +419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.4280002}
   m_AnchorMin: {x: 0.09774533, y: 0.10850536}
   m_AnchorMax: {x: 0.95400006, y: 0.8625054}
-  m_AnchoredPosition: {x: -1.199997, y: 2.5}
+  m_AnchoredPosition: {x: -1.2000122, y: 2.5}
   m_SizeDelta: {x: -4.869995, y: -22.510002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &791667861
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072218171}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 354d4ad1600a23149b243f0adfde1e1c, type: 3}
   m_Name: 
