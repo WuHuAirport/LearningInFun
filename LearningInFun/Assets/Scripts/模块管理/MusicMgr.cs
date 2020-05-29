@@ -16,7 +16,7 @@ public class MusicMgr : BaseManager<MusicMgr>
 
     Thread thread;
     SpVoice spVoice;
-    string DefaultEnglishLangID = "804";//中文 409：英文
+    string DefaultEnglishLangID = "409";//804中文 409：英文
 
     public MusicMgr()
     {

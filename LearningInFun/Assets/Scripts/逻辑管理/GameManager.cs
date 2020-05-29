@@ -90,8 +90,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //choseWordList = IOMgr.GetInstance().GetChooseWord();
-        choseWordList = tempWords;
+        choseWordList = IOMgr.GetInstance().GetChooseWord();
+        //choseWordList = tempWords;
     }
 
     // Update is called once per frame
