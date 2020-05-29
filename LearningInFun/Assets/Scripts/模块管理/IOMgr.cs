@@ -143,7 +143,7 @@ public class IOMgr :BaseManager<IOMgr>
     public void SaveData<T>(T data,string fileName)
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath +"/" +fileName);
+        FileStream file = File.Create(Application.dataPath +"/" +fileName);
         bf.Serialize(file, data);
         file.Close();
     }
@@ -151,10 +151,10 @@ public class IOMgr :BaseManager<IOMgr>
     public T LoadData<T>(string fileName)where T:new()
     {
         T data = new T();
-        if (File.Exists(Application.persistentDataPath +"/" + fileName))
+        if (File.Exists(Application.dataPath +"/" + fileName))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/" + fileName, FileMode.Open);
+            FileStream file = File.Open(Application.dataPath + "/" + fileName, FileMode.Open);
             data = (T)bf.Deserialize(file);
             file.Close();
             return data;
