@@ -119,13 +119,14 @@ public class IOMgr :BaseManager<IOMgr>
         SaveData<ThesaursSave>(thesaursSave, thesaursFileName);
         if (chooseWord.chooseWord.Count != 0)
         {
-            foreach (string item in chooseWord.chooseWord)
+            for(int i= chooseWord.chooseWord.Count-1; i >= 0; i--)
             {
-                if (!SearchWord(item))
+                if (!SearchWord(chooseWord.chooseWord[i]))
                 {
-                    DeleteCWord(item);
+                    DeleteCWord(chooseWord.chooseWord[i]);
                 }
             }
+
             SaveChooseWord();
         }
     }

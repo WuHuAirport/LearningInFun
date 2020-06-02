@@ -19,7 +19,7 @@ public class ThesauruslsSetUI : MonoBehaviour
         jumpToScene = GetComponent<UIPoint>();
         SVC = GameObject.Find("Scroll View").GetComponentInChildren<ScrollViewContral>();
         LoadThesaurusls(inputWord);
-
+        jumpToScene.jumpSceneName = SceneName.startScene;
         //监听输入框输入
         inputField = GameObject.Find("InputField").GetComponent<InputField>();
         inputField.GetComponent<InputField>().onEndEdit.AddListener(EndEdit);
