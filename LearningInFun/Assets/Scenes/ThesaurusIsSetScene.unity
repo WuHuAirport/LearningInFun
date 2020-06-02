@@ -287,7 +287,6 @@ GameObject:
   - component: {fileID: 256761701}
   - component: {fileID: 256761700}
   - component: {fileID: 256761699}
-  - component: {fileID: 256761702}
   m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
@@ -358,8 +357,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 256761702}
-        m_MethodName: JumpToScene
+      - m_Target: {fileID: 1787397756}
+        m_MethodName: BackHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -405,19 +404,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256761697}
   m_CullTransparentMesh: 0
---- !u!114 &256761702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256761697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1f158dea7cd234fbcb29c3e738c67c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpSceneName: 0
 --- !u!1 &268352417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1787397757}
   - component: {fileID: 1787397756}
+  - component: {fileID: 1787397758}
   m_Layer: 0
   m_Name: TSUIMgr
   m_TagString: Untagged
@@ -1718,6 +1705,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1787397758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787397755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1f158dea7cd234fbcb29c3e738c67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSceneName: 0
 --- !u!1 &1789132567
 GameObject:
   m_ObjectHideFlags: 0

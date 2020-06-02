@@ -12,9 +12,11 @@ public class ThesauruslsSetUI : MonoBehaviour
     private ScrollViewContral SVC;//滚动条
     bool needLoad = false;//true：需要刷新滚动条
     InputField inputField;//输入框
+    UIPoint jumpToScene;
     private void Start()
     {
         thesaurusls = BaseManager<IOMgr>.GetInstance();
+        jumpToScene = GetComponent<UIPoint>();
         SVC = GameObject.Find("Scroll View").GetComponentInChildren<ScrollViewContral>();
         LoadThesaurusls(inputWord);
 
@@ -85,6 +87,16 @@ public class ThesauruslsSetUI : MonoBehaviour
         needLoad = true;
     }
 
+    /// <summary>
+    /// 保存当前词库并返回开始界面
+    /// </summary>
+    public void BackHome()
+    {
+        thesaurusls.SaveThesaurus();
+        thesaurusls.SaveChooseWord();
+
+        jumpToScene.JumpToScene();
+    }
 
     /// <summary>
     /// 根据生成正则生成滚动条

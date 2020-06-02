@@ -23,8 +23,8 @@ public class IOMgr :BaseManager<IOMgr>
     {
         thesaursSave = new ThesaursSave();
         chooseWord = new ChooseWordSave();
-        LoadThesaurus();
         LoadChooseWord();
+        LoadThesaurus();
     }
 
     #region 词库输入输出
@@ -227,11 +227,17 @@ public class IOMgr :BaseManager<IOMgr>
         return true;
     }
 
+    /// <summary>
+    /// 保存选择词库到硬盘
+    /// </summary>
     public void SaveChooseWord()
     {
         SaveData<ChooseWordSave>(chooseWord, chooseWordFileName);
     }
 
+    /// <summary>
+    /// 读取选择词库
+    /// </summary>
     public void LoadChooseWord()
     {
         chooseWord = LoadData<ChooseWordSave>(chooseWordFileName);
